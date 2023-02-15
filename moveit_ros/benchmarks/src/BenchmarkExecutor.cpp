@@ -95,7 +95,7 @@ static std::string getHostname()
 }
 
 BenchmarkExecutor::BenchmarkExecutor(const rclcpp::Node::SharedPtr& node, const std::string& robot_description_param)
-  : node_(node), dbloader(node)
+  : node_(node), dbloader_(node)
 {
   pss_ = nullptr;
   psws_ = nullptr;
@@ -430,7 +430,7 @@ bool BenchmarkExecutor::loadBenchmarkQueryData(const BenchmarkOptions& opts, mov
 {
   try
   {
-    warehouse_ros::DatabaseConnection::Ptr warehouse_connection = dbloader.loadDatabase();
+    warehouse_ros::DatabaseConnection::Ptr warehouse_connection = dbloader_.loadDatabase();
     warehouse_connection->setParams(opts.getHostName(), opts.getPort(), 20);
     if (warehouse_connection->connect())
     {

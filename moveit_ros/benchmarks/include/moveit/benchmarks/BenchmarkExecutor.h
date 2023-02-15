@@ -207,7 +207,7 @@ protected:
   moveit_warehouse::TrajectoryConstraintsStorage* tcs_;
 
   rclcpp::Node::SharedPtr node_;
-  warehouse_ros::DatabaseLoader dbloader;
+  warehouse_ros::DatabaseLoader dbloader__;
   planning_scene::PlanningScenePtr planning_scene_;
 
   BenchmarkOptions options_;
